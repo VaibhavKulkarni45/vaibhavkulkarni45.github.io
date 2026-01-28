@@ -11,21 +11,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ========== BASE ========== */
+/* ================= BASE ================= */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   background: #f8fafc;
   color: #1e293b;
   scroll-behavior: smooth;
-  transition: 0.4s;
+  transition: background 0.4s, color 0.4s;
 }
+
 body.dark {
   background: #020617;
   color: #f8fafc;
 }
 
-/* ========== HEADER ========== */
+/* ================= HEADER ================= */
 header {
   position: sticky;
   top: 0;
@@ -37,43 +38,54 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
 header.dark {
   background: #020617;
 }
+
 nav a {
   color: white;
   text-decoration: none;
   margin-left: 1rem;
   font-weight: 500;
 }
-nav a.active { text-decoration: underline; }
+
 .theme-toggle {
   cursor: pointer;
   font-size: 1.4rem;
   margin-left: 1rem;
 }
 
-/* ========== SECTIONS ========== */
+/* ================= SECTIONS ================= */
 section {
   max-width: 1000px;
   margin: auto;
   padding: 5rem 1.5rem;
+}
+
+/* animation only for selected sections */
+.animate {
   opacity: 0;
   transform: translateY(40px);
-  transition: 0.8s;
+  transition: 0.8s ease;
 }
-section.visible {
+
+.animate.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 h2 {
   text-align: center;
   color: #1d4ed8;
   margin-bottom: 1.5rem;
 }
-body.dark h2 { color: #93c5fd; }
 
-/* ========== HERO / INTRO ========== */
+body.dark h2 {
+  color: #93c5fd;
+}
+
+/* ================= HERO ================= */
 .intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -83,11 +95,12 @@ body.dark h2 { color: #93c5fd; }
   border-radius: 22px;
   padding: 4rem;
 }
+
 body.dark .intro {
   background: linear-gradient(135deg,#020617,#0f172a);
 }
 
-/* Profile Photo */
+/* profile photo */
 .profile-pic {
   width: 220px;
   height: 220px;
@@ -97,23 +110,23 @@ body.dark .intro {
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* Text */
-.intro h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
+/* typing */
 .typing {
   font-weight: 600;
   color: #2563eb;
   border-right: 3px solid;
   padding-right: 4px;
 }
-body.dark .typing { color: #93c5fd; }
 
-/* Buttons */
+body.dark .typing {
+  color: #93c5fd;
+}
+
+/* buttons */
 .btn-group {
   margin-top: 1.5rem;
 }
+
 .btn {
   display: inline-block;
   padding: 0.7rem 1.6rem;
@@ -122,16 +135,18 @@ body.dark .typing { color: #93c5fd; }
   text-decoration: none;
   margin-right: 1rem;
 }
+
 .btn-primary {
   background: #2563eb;
   color: white;
 }
+
 .btn-outline {
   border: 2px solid #2563eb;
   color: #2563eb;
 }
 
-/* ========== SKILLS ========== */
+/* ================= SKILLS ================= */
 .skills-list {
   list-style: none;
   display: grid;
@@ -139,6 +154,7 @@ body.dark .typing { color: #93c5fd; }
   gap: 1rem;
   padding: 0;
 }
+
 .skills-list li {
   background: white;
   border-radius: 14px;
@@ -146,12 +162,12 @@ body.dark .typing { color: #93c5fd; }
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
+
 body.dark .skills-list li {
   background: #020617;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* ========== PROJECTS ========== */
+/* ================= PROJECTS ================= */
 .project-card {
   background: white;
   border-radius: 16px;
@@ -159,44 +175,29 @@ body.dark .skills-list li {
   margin-bottom: 1.8rem;
   box-shadow: 0 12px 35px rgba(0,0,0,0.1);
 }
+
 body.dark .project-card {
   background: #020617;
 }
 
-/* ========== CONTACT ========== */
+/* ================= CONTACT ================= */
 .contact-info {
   text-align: center;
 }
-.contact-info a {
-  color: #2563eb;
-  text-decoration: none;
-}
 
-/* ========== FOOTER ========== */
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
   padding: 1.5rem;
   background: #1d4ed8;
   color: white;
 }
-body.dark footer { background: #020617; }
 
-/* ========== BACK TO TOP ========== */
-#backToTop {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: #2563eb;
-  color: white;
-  border: none;
-  display: none;
-  cursor: pointer;
+body.dark footer {
+  background: #020617;
 }
 
-/* ========== RESPONSIVE ========== */
+/* ================= RESPONSIVE ================= */
 @media(max-width:800px){
   .intro {
     grid-template-columns: 1fr;
@@ -212,7 +213,7 @@ body.dark footer { background: #020617; }
   <h3>Vaibhav Kulkarni</h3>
   <div>
     <nav>
-      <a href="#about" class="active">About</a>
+      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -221,6 +222,7 @@ body.dark footer { background: #020617; }
   </div>
 </header>
 
+<!-- HERO LOADS IMMEDIATELY -->
 <section class="intro" id="about">
   <div>
     <h1>Hello, I'm Vaibhav Kulkarni</h1>
@@ -229,9 +231,8 @@ body.dark footer { background: #020617; }
 
     <div class="btn-group">
       <a href="Vaibhav_Kulkarni_Resume.pdf" target="_blank" class="btn btn-primary">
-  View Resume
-</a>
-
+        View Resume
+      </a>
       <a href="#projects" class="btn btn-outline">
         View Projects
       </a>
@@ -243,7 +244,7 @@ body.dark footer { background: #020617; }
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="animate">
   <h2>Technical Skills</h2>
   <ul class="skills-list">
     <li>Java</li><li>Python</li><li>HTML</li><li>CSS</li>
@@ -251,22 +252,19 @@ body.dark footer { background: #020617; }
   </ul>
 </section>
 
-<section id="projects">
+<section id="projects" class="animate">
   <h2>Projects</h2>
   <div class="project-card">
     <h3>IoT Smart Street Light System</h3>
     <p>Energy-efficient IoT-based lighting system using sensors.</p>
-    <p>Received state level recognition</p>
-    <p>Finalist of KSCST project presentation-state level competition organised by IISC Bangalore</p>
   </div>
   <div class="project-card">
-    <h3>AI Resume Analyzer</h3>
-    <p>AI-powered platform that analyzes resumes against job descriptions using ATS-style keyword matching and AI feedback.</p>
-     <a href="https://vaibhav-ai-resume-analyzer.netlify.app/">View project</a>
+    <h3>Employee Management System</h3>
+    <p>Java & SQL based CRUD application following OOP principles.</p>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="animate">
   <h2>Contact</h2>
   <div class="contact-info">
     <p>Email: vaibhavkulkarni.8121@gmail.com</p>
@@ -275,40 +273,35 @@ body.dark footer { background: #020617; }
 </section>
 
 <footer>
-  © 2026 Vaibhav Kulkarni
+  © 2025 Vaibhav Kulkarni
 </footer>
 
-<button id="backToTop">↑</button>
-
 <script>
-/* Typing */
+/* typing effect */
 const words=["Software Solutions","AI Projects","Web Applications"];
-let w=0,c=0,d=false;
+let w=0,c=0,del=false;
 const t=document.querySelector(".typing");
+
 function type(){
   t.textContent=words[w].substring(0,c);
-  d?c--:c++;
-  if(c>words[w].length)d=true;
-  if(c===0&&d){d=false;w=(w+1)%words.length;}
-  setTimeout(type,d?60:100);
+  del?c--:c++;
+  if(c>words[w].length) del=true;
+  if(c===0 && del){ del=false; w=(w+1)%words.length; }
+  setTimeout(type, del?60:100);
 }
 type();
 
-/* Scroll reveal */
-const sections=document.querySelectorAll("section");
+/* scroll animation */
+const sections=document.querySelectorAll(".animate");
 window.addEventListener("scroll",()=>{
   sections.forEach(s=>{
-    if(s.getBoundingClientRect().top<window.innerHeight*0.85)
+    if(s.getBoundingClientRect().top < window.innerHeight*0.85){
       s.classList.add("visible");
+    }
   });
 });
 
-/* Back to top */
-const btn=document.getElementById("backToTop");
-window.addEventListener("scroll",()=>btn.style.display=window.scrollY>300?"block":"none");
-btn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
-
-/* Dark mode */
+/* dark mode */
 const toggle=document.getElementById("themeToggle");
 toggle.onclick=()=>{
   document.body.classList.toggle("dark");
